@@ -1,0 +1,15 @@
+[tools]
+typst = "latest"
+
+[tasks.build]
+description = "Build the printable A4 code of conduct"
+run = "typst compile --font-path fonts code-of-conduct.typ code-of-conduct.pdf"
+
+[tasks.watch]
+description = "Rebuild the PDF whenever the template changes"
+run = "typst watch --font-path fonts code-of-conduct.typ code-of-conduct.pdf"
+
+[tasks.preview]
+description = "Build and open the PDF in the default viewer"
+depends = ["build"]
+run = "open code-of-conduct.pdf"
